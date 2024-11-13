@@ -1,16 +1,16 @@
-# Mega Music Captions
+# MIRFLEX
 
-[![Status](https://img.shields.io/badge/status-stable-green.svg)](https://github.com/AMAAI-Lab/megamusicaps) [![Version](https://img.shields.io/badge/version-v1.0.0-blue.svg)](https://github.com/AMAAI-Lab/megamusicaps)
+[![Status](https://img.shields.io/badge/status-stable-green.svg)](https://github.com/AMAAI-Lab/mirflex) [![Version](https://img.shields.io/badge/version-v1.0.0-blue.svg)](https://github.com/AMAAI-Lab/mirflex)
 
 ## Description
 
-Mega Music Captions is a tool for analyzing various musical features from audio clips and generating descriptions based on that analysis. It extracts details like key, chord progression, tempo, and genre, and can tell the difference between vocal and instrumental sections. It also creates simple captions describing the music using a natural language model.
+MIRFLEX is a tool for analyzing various musical features from audio clips. It extracts details like key, chord progression, tempo, and genre, and can tell the difference between vocal and instrumental sections. The outputs can be saved as latents or labels in a JSON file. It also creates simple captions describing the music using the OpenAI API.
 
-The system is modular, so you can easily turn different features on or off and customize the captions with different APIs. Whether you're using it for research, creative projects, or just to better understand music, Mega Music Captions offers a practical way to analyze and describe audio.
+The system is modular, so you can easily turn different features on or off and customize the features to be extracted by even integrating your own feature extractor. Whether you're using it for research, creative projects, or just to better understand music, MIRFLEX offers a practical way to analyze and describe audio.
 
 ## Features and Models
 
-Mega Music Captions uses advanced models for different music analysis tasks. Here's a quick rundown of the main features:
+MIRFLEX uses advanced models for different music analysis tasks. Here's a quick rundown of the main features:
 
 1. **Key Detection**: 
    - **Model**: CNNs with Directional Filters ([Schreiber and Müller, 2019](https://github.com/hendriks73/key-cnn))
@@ -40,13 +40,13 @@ To use the music captioning system, follow these steps:
 
 Clone repository
 ```
-git clone https://github.com/AMAAI-Lab/megamusicaps.git
+git clone https://github.com/AMAAI-Lab/mirflex.git
 ```
 
 Change directory into repository
 
 ```
-cd megamusicaps
+cd mirflex
 ```
 
 Download zip file with pre-trained weights required for source separation during pre-processing
@@ -61,19 +61,19 @@ unzip spleeter_pretrained_weights.zip
 
 ### 2. Set up environment
 
-Follow the steps mentioned in [SETUP.md](SETUP.md) to prepare a conda environment to be used for running the Mega Music Captions tool
+Follow the steps mentioned in [SETUP.md](SETUP.md) to prepare a conda environment to be used for running the MIRFLEX tool
 
 ### 3. Configuration
 
-Create / modify the configuration file (config/caption_generator_config.yaml) with the necessary parameters. Example configuration file and details on configuration options are provided in the configs section of this README.
+Create / modify the configuration file (config/feature_extractor_config.yaml) with the necessary parameters. Example configuration file and details on configuration options are provided in the configs section of this README.
 
-### 4. Run the Captioning System
+### 4. Run the Feature Extraction System
 
 #### Environment
 
 Activate conda environment in a new terminal
 ```
-conda activate megamusicaps
+conda activate mirflex
 ```
 
 #### Preprocess
@@ -83,8 +83,8 @@ Generate raw input json file for all mp3 files in given directory. Set directori
 ```
 if __name__ == "__main__":
     # Example usage:
-    input_directories = ["/proj/megamusicaps/samples/fma_top_downloads/", "/proj/megamusicaps/samples/generic_pop_audio/", "/proj/megamusicaps/samples/mtg_jamendo/"]
-    output_json_file = "/proj/megamusicaps/files/audio_files.json"
+    input_directories = ["/proj/mirflex/samples/fma_top_downloads/", "/proj/mirflex/samples/generic_pop_audio/", "/proj/mirflex/samples/mtg_jamendo/"]
+    output_json_file = "/proj/mirflex/files/audio_files.json"
 
 ```
 
@@ -119,7 +119,7 @@ The configuration file includes settings for input/output paths, feature extract
 
     files:
 	    input:  "/path/to/audio_files.json"
-	    output:  "/path/to/captions.json"
+	    output:  "/path/to/features.json"
 	caption_generator:
 		api_key:  "YOUR_OPENAI_API_KEY"
 		model_id:  "gpt-3.5-turbo"
@@ -137,7 +137,7 @@ The configuration file includes settings for input/output paths, feature extract
 The generated captions can be easily visualised using the following command
 
 ```
-python display_tags.py files/captions.json (directory_with_megamusicaps_repo)/megamusicaps/
+python display_tags.py files/features.json (directory_with_mirflex_repo)/mirflex/
 ```
 
 the requirements to run this are the following packages
@@ -146,6 +146,6 @@ the requirements to run this are the following packages
 - pygame
 - json
 
-This will open a simple gui that can display the extracted feature values as stored in the captions.json, while playing the music.
+This will open a simple gui that can display the extracted feature values as stored in the features.json, while playing the music.
 
 There are buttons available to flipping to next or previous audio. Additionally there is a button to restart the audio if required.
