@@ -19,7 +19,7 @@ import warnings
 import time
 from tqdm import tqdm
 
-class MusicCaptioner:
+class MusicFeatureExtractor:
 	def __init__(self, config_file_path):
 		self.config_file_path = config_file_path
 
@@ -117,7 +117,8 @@ class MusicCaptioner:
 		else:
 			self.feature_extractors.insert(FeatureExtractors.KEY_CLASSIFIER.value, None)
 
-		self.caption_generator = CaptionGenerator(self.configs["caption_generator"]["api_key"], self.configs["caption_generator"]["model_id"])
+		if (self.enable_caption_generation):
+			self.caption_generator = CaptionGenerator(self.configs["caption_generator"]["api_key"], self.configs["caption_generator"]["model_id"])
 
 	def load_configs(self, file_path):
 		configs = {}
@@ -133,7 +134,7 @@ class MusicCaptioner:
 				audio_paths.append(audio_path["location"])
 		return audio_paths
 
-	def caption_audio(self, snippet_path):
+	def process_audio(self, snippet_path):
 		audio_tags = {}
 		for extractor in self.active_extractors:
 			if not self.feature_extractors[extractor].get_source() == "raw":
@@ -158,28 +159,28 @@ class MusicCaptioner:
 		audio_tags["location"] = snippet_path
 		return audio_tags
 
-	def caption_all(self):
+	def extract_features_all(self):
 		audio_paths = self.get_audio_paths(self.input_file_path)
 		audio_tags = []
-		for audio_path in tqdm(audio_paths, desc="Captioning Progress", unit="audio"):
+		for audio_path in tqdm(audio_paths, desc="Feature Extraction Progress", unit="audio"):
 			try:
-				caption = self.caption_audio(audio_path)
+				caption = self.process_audio(audio_path)
 			except:
-				print("Error captioning : ", audio_path)
+				print("Error extracting features for audio : ", audio_path)
 				caption = {"location": audio_path, "caption": "!!!Error"}
 			audio_tags.append(caption)
 		return audio_tags
 
-	def save_captions(self, audio_tags):
+	def save_features(self, audio_tags):
 		with open(self.output_file_path, 'w') as out_f:
 			for tags in audio_tags:
 				out_f.write(json.dumps(tags) + '\n')
 
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser(description="Generate captions for audio snippets.")
-    parser.add_argument("config_file", help="Path to the file with configs for generation of captions")
+    parser = argparse.ArgumentParser(description="Extract features and pseuo-captions for audio snippets.")
+    parser.add_argument("config_file", help="Path to the file with configs for feature extraction")
     args = parser.parse_args()
 
-    music_captioner = MusicCaptioner(args.config_file)
-    captions = music_captioner.caption_all()
-    music_captioner.save_captions(captions)
+    music_feature_extractor = MusicFeatureExtractor(args.config_file)
+    features = music_feature_extractor.extract_features_all()
+    music_feature_extractor.save_features(features)
