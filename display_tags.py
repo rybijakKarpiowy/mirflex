@@ -86,6 +86,7 @@ class MusicPlayerApp:
                                         caption = caption + ", "
                                     if i%4 == 0 and i >= 4:
                                         caption = caption + "\n"
+                                caption = caption + "\n"
                             else:
                                 caption = caption + str(key) + " : " + str(item[key]) + "\n"
                     self.label_caption.config(text=caption)
