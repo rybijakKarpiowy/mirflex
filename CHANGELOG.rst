@@ -2,7 +2,7 @@
 Changelog
 *********
 
-All important and notable changes to the megamusicaps projects
+All important and notable changes to the MIRFLEX projects
 
 1.0.0 (2024-09-05)
 ==================

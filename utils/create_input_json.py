@@ -22,7 +22,7 @@ def create_json_file(directory_paths, output_json_file):
 
 if __name__ == "__main__":
     # Example usage:
-    input_directories = ["/proj/megamusicaps/samples/fma_top_downloads/", "/proj/megamusicaps/samples/generic_pop_audio/", "/proj/megamusicaps/samples/mtg_jamendo/"]
-    output_json_file = "/proj/megamusicaps/files/audio_files.json"
+    input_directories = ["/proj/mirflex/samples/fma_top_downloads/", "/proj/mirflex/samples/generic_pop_audio/", "/proj/mirflex/samples/mtg_jamendo/"]
+    output_json_file = "/proj/mirflex/files/audio_files.json"
 
     create_json_file(input_directories, output_json_file)
