@@ -1,7 +1,7 @@
 # Environment Setup
 
 
-The repository has been tested with the following environment set up. To recreate, please follow the below installations in order
+The repository has been tested with the following environment set up. To recreate, please follow the below installations in order. The steps in the README expect the conda environment name to be mirflex.
 
 
 ### Base
