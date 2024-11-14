@@ -97,23 +97,23 @@ python utils/create_input_json.py
 Run pre-processing to split audio into 30 second segments and split sources into 4 stems
 
 ```
-python preprocess.py config/caption_generator_config.yaml
+python preprocess.py config/feature_extractor_config.yaml
 ```
 
 
-#### Caption audio
+#### Extract features
 
 Run the main script (main.py) with the path to your configuration file as a command-line argument:
 
 ```
-python main.py config/caption_generator_config.yaml
+python main.py config/feature_extractor_config.yaml
 ```
 
-### 5. Generated Captions
+### 5. Extracted Features
 
 The generated captions will be saved in the specified output file as JSON format.
 
-## Configuration (config/caption_generator_config.yaml)
+## Configuration (config/feature_extractor_config.yaml)
 
 The configuration file includes settings for input/output paths, feature extractors, and the OpenAI GPT-3.5 Turbo model. Here is a breakdown of the configuration parameters:
 
