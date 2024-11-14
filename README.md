@@ -8,6 +8,22 @@ MIRFLEX is a tool for analyzing various musical features from audio clips. It ex
 
 The system is modular, so you can easily turn different features on or off and customize the features to be extracted by even integrating your own feature extractor. Whether you're using it for research, creative projects, or just to better understand music, MIRFLEX offers a practical way to analyze and describe audio.
 
+## Contribute to MIRFLEX! 🚀 
+
+We welcome contributions from the community to help MIRFLEX evolve into a comprehensive, powerful tool for Music Information Retrieval (MIR). Whether you’re interested in adding new feature extractors, improving existing ones, or optimizing performance, your input is invaluable in making MIRFLEX even more versatile and useful.
+
+### Ways to Contribute
+- **Add Feature Extractors**: Enhance MIRFLEX with new models for tasks such as genre detection, mood analysis, or instrument recognition.
+- **Optimize Existing Modules**: Suggestions to optimise architecture, and solve the ever growing issue of reconciling requirement conflicts when integrating many feature extractors.
+- **Documentation & Examples**: Help others learn and use MIRFLEX effectively by contributing to the documentation or creating example notebooks.
+
+### Get Started
+1. Fork the repository and start exploring the codebase.
+2. Check out our Contributing Guidelines (Will be up soon! Until then feel free to experiment and use the existing feature extractors as an example)
+3. Submit a pull request with your proposed changes.
+
+Join us in making MIRFLEX a valuable resource for the MIR community
+
 ## Features and Models
 
 MIRFLEX uses advanced models for different music analysis tasks. Here's a quick rundown of the main features:
@@ -31,6 +47,21 @@ MIRFLEX uses advanced models for different music analysis tasks. Here's a quick 
 5. **Instrument, Mood, and Genre Detection**:
    - **Model**: Essentia's Jamendo Baseline Models ([Essentia Library](https://essentia.upf.edu))
    - **Description**: Classifies instruments, mood/themes, and genres using CNN-based models.
+
+---
+
+## Request to Cite 🙏
+
+If MIRFLEX has supported your work or contributed to your research, we kindly ask you to cite our paper to help others discover this resource.
+
+```bibtex
+@inproceedings{chopra2024mirflex,
+  title={MIRFLEX: Music Information Retrieval Feature Library for Extraction},
+  author={Chopra, Anuradha and Roy, Abhinaba and Herremans, Dorien},
+  booktitle={Proceedings of the Late-Breaking Demo Session of the 25th International Society for Music Information Retrieval Conference (ISMIR)},
+  year={2024},
+  address={San Francisco, United States}
+}
 
 ## Usage
 
