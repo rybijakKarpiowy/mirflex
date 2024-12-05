@@ -70,7 +70,8 @@ class MusicPlayerApp:
                     # caption = item["caption"]
                     caption = ""
                     for key in item.keys():
-                        if not key in ["caption", "location"]:
+                        # if not key in ["caption", "location"]:
+                        if not key in ["caption"]:
                             if key == "beats":
                                 caption = caption + "bpm : " + str(item[key]["bpm"]) + "\n"
                             elif key == "gender":
@@ -87,6 +88,8 @@ class MusicPlayerApp:
                                     if i%4 == 0 and i >= 4:
                                         caption = caption + "\n"
                                 caption = caption + "\n"
+                            elif key == "location":
+                                caption = caption + "\nTitle: " + item[key].split("/")[-1] + "\n"
                             else:
                                 caption = caption + str(key) + " : " + str(item[key]) + "\n"
                     self.label_caption.config(text=caption)

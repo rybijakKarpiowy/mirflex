@@ -1,13 +1,13 @@
 "files":
-  "raw_input": "/proj/mirflex/files/audio_files.json"
-  "input": "/proj/mirflex/files/preprocessed_audio_files.json"
-  "output": "/proj/mirflex/files/features.json"
+  "raw_input": "./files/audio_files.json"
+  "input": "./files/preprocessed_audio_files.json"
+  "output": "./files/features.json"
 
 "paths":
-  "temp": "/proj/mirflex/files/temp/"
-  "source_separated_audio": "/proj/mirflex/files/source_separated_audio"
-  "split_audio": "/proj/mirflex/files/split_audio"
-  "saved_features": "/proj/mirflex/output" 
+  "temp": "./files/temp/"
+  "source_separated_audio": "./files/source_separated_audio"
+  "split_audio": "./files/split_audio"
+  "saved_features": "./output" 
 
 "preprocess":
   "split":
@@ -27,47 +27,47 @@
   "mood_extractor":
     "active": True
     "source": "raw"
-    "model": "/proj/mirflex/essentia_models/mtg_jamendo_moodtheme-discogs-effnet-1.pb"
-    "model_metadata": "/proj/mirflex/essentia_models/mtg_jamendo_moodtheme-discogs-effnet-1.json"
-    "embedding_model": "/proj/mirflex/essentia_models/discogs-effnet-bs64-1.pb"
+    "model": "./essentia_models/mtg_jamendo_moodtheme-discogs-effnet-1.pb"
+    "model_metadata": "./essentia_models/mtg_jamendo_moodtheme-discogs-effnet-1.json"
+    "embedding_model": "./essentia_models/discogs-effnet-bs64-1.pb"
     "save_features": True
     "format": "npy"
   "genre_extractor":
     "active": True
     "source": "raw"
-    "model": "/proj/mirflex/essentia_models/mtg_jamendo_genre-discogs-effnet-1.pb"
-    "model_metadata": "/proj/mirflex/essentia_models/mtg_jamendo_genre-discogs-effnet-1.json"
-    "embedding_model": "/proj/mirflex/essentia_models/discogs-effnet-bs64-1.pb"
+    "model": "./essentia_models/mtg_jamendo_genre-discogs-effnet-1.pb"
+    "model_metadata": "./essentia_models/mtg_jamendo_genre-discogs-effnet-1.json"
+    "embedding_model": "./essentia_models/discogs-effnet-bs64-1.pb"
     "save_features": True
     "format": "npy"
   "instrument_extractor":
     "active": True
     "source": "raw"
-    "model": "/proj/mirflex/essentia_models/mtg_jamendo_instrument-discogs-effnet-1.pb"
-    "model_metadata": "/proj/mirflex/essentia_models/mtg_jamendo_instrument-discogs-effnet-1.json"
-    "embedding_model": "/proj/mirflex/essentia_models/discogs-effnet-bs64-1.pb"
+    "model": "./essentia_models/mtg_jamendo_instrument-discogs-effnet-1.pb"
+    "model_metadata": "./essentia_models/mtg_jamendo_instrument-discogs-effnet-1.json"
+    "embedding_model": "./essentia_models/discogs-effnet-bs64-1.pb"
     "save_features": True
     "format": "npy"
   "voice_extractor":
     "active": True
     "source": "raw"
-    "model": "/proj/mirflex/essentia_models/voice_instrumental-discogs-effnet-1.pb"
-    "model_metadata": "/proj/mirflex/essentia_models/voice_instrumental-discogs-effnet-1.json"
-    "embedding_model": "/proj/mirflex/essentia_models/discogs-effnet-bs64-1.pb"
+    "model": "./essentia_models/voice_instrumental-discogs-effnet-1.pb"
+    "model_metadata": "./essentia_models/voice_instrumental-discogs-effnet-1.json"
+    "embedding_model": "./essentia_models/discogs-effnet-bs64-1.pb"
     "save_features": True
     "format": "npy"
   "gender_extractor":
     "active": False
     "source": "vocals"
-    "model": "/proj/mirflex/essentia_models/gender-discogs-effnet-1.pb"
-    "model_metadata": "/proj/mirflex/essentia_models/gender-discogs-effnet-1.json"
-    "embedding_model": "/proj/mirflex/essentia_models/discogs-effnet-bs64-1.pb"
+    "model": "./essentia_models/gender-discogs-effnet-1.pb"
+    "model_metadata": "./essentia_models/gender-discogs-effnet-1.json"
+    "embedding_model": "./essentia_models/discogs-effnet-bs64-1.pb"
   "auto_extractor":
     "active": True
     "source": "raw"
-    "model": "/proj/mirflex/essentia_models/mtt-discogs-effnet-1.pb"
-    "model_metadata": "/proj/mirflex/essentia_models/mtt-discogs-effnet-1.json"
-    "embedding_model": "/proj/mirflex/essentia_models/discogs-effnet-bs64-1.pb"
+    "model": "./essentia_models/mtt-discogs-effnet-1.pb"
+    "model_metadata": "./essentia_models/mtt-discogs-effnet-1.json"
+    "embedding_model": "./essentia_models/discogs-effnet-bs64-1.pb"
     "save_features": True
     "format": "npy"
   "beatnet_extractor":
@@ -82,14 +82,14 @@
   "btc_chord_extractor":
     "active": True
     "source": "other"
-    "model": "/proj/mirflex/feature_extractors/btc_chord_extraction/test/btc_model.pt"
-    "config_file": "/proj/mirflex/feature_extractors/btc_chord_extraction/run_config.yaml"
+    "model": "./feature_extractors/btc_chord_extraction/test/btc_model.pt"
+    "config_file": "./feature_extractors/btc_chord_extraction/run_config.yaml"
     "save_features": True
     "format": "npy"
   "gender_classifier":
     "active": True
     "source": "vocals"
-    "model": "/proj/mirflex/feature_extractors/gender_recognition/models/model.h5"
+    "model": "./feature_extractors/gender_recognition/models/model.h5"
     "mel": True
     "save_features": True
     "format": "npy"

@@ -9,7 +9,7 @@ separator = Separator('spleeter:4stems')
 
 audio_loader = AudioAdapter.default()
 
-def separate_audio(audio_path, output_dir="/proj/mirflex/files/temp/"):
+def separate_audio(audio_path, output_dir="./files/temp/"):
 
     waveform, _ = audio_loader.load(audio_path)
 

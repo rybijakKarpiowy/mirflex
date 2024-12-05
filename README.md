@@ -1,6 +1,6 @@
 # MIRFLEX
 
-[![Status](https://img.shields.io/badge/status-stable-green.svg)](https://github.com/AMAAI-Lab/mirflex) [![Version](https://img.shields.io/badge/version-v1.0.0-blue.svg)](https://github.com/AMAAI-Lab/mirflex)
+[![Status](https://img.shields.io/badge/status-stable-green.svg)](https://github.com/AMAAI-Lab) [![Version](https://img.shields.io/badge/version-v1.0.0-blue.svg)](https://github.com/AMAAI-Lab)
 
 ## Description
 
@@ -72,7 +72,7 @@ To use the music captioning system, follow these steps:
 
 Clone repository
 ```
-git clone https://github.com/AMAAI-Lab/mirflex.git
+git clone https://github.com/AMAAI-Lab.git
 ```
 
 Change directory into repository
@@ -82,6 +82,7 @@ cd mirflex
 ```
 
 Download zip file with pre-trained weights required for source separation during pre-processing
+### NOTE: Running this command downloads html file instead of .zip, open this link in a browser and download the file manually
 ```
 wget --no-check-certificate 'https://drive.google.com/uc?export=download&id=1yFs9ncHiV5-bI3_xrsgk7eL2QN9Hlldd' -O spleeter_pretrained_weights.zip
 ```
@@ -115,8 +116,8 @@ Generate raw input json file for all mp3 files in given directory. Set directori
 ```
 if __name__ == "__main__":
     # Example usage:
-    input_directories = ["/proj/mirflex/samples/fma_top_downloads/", "/proj/mirflex/samples/generic_pop_audio/", "/proj/mirflex/samples/mtg_jamendo/"]
-    output_json_file = "/proj/mirflex/files/audio_files.json"
+    input_directories = ["./samples/fma_top_downloads/", "./samples/generic_pop_audio/", "./samples/mtg_jamendo/"]
+    output_json_file = "./files/audio_files.json"
 
 ```
 
@@ -138,7 +139,7 @@ python preprocess.py config/feature_extractor_config.yaml
 Run the main script (main.py) with the path to your configuration file as a command-line argument:
 
 ```
-python main.py config/feature_extractor_config.yaml
+python -W ignore main.py config/feature_extractor_config.yaml
 ```
 
 ### 5. Extracted Features
@@ -150,17 +151,17 @@ The generated captions will be saved in the specified output file as JSON format
 The configuration file includes settings for input/output paths, feature extractors, and the OpenAI GPT-3.5 Turbo model. Here is a breakdown of the configuration parameters:
 
     files:
-	    input:  "/path/to/audio_files.json"
-	    output:  "/path/to/features.json"
+	    input:  "./path/to/audio_files.json"
+	    output:  "./path/to/features.json"
 	caption_generator:
 		api_key:  "YOUR_OPENAI_API_KEY"
 		model_id:  "gpt-3.5-turbo"
 	extractors:
 		mood_extractor:
 			active:  True
-			model:  "/path/to/mood_model.pb"
-			model_metadata:  "/path/to/mood_model_metadata.json"
-			embedding_model:  "/path/to/embedding_model.pb"
+			model:  "./path/to/mood_model.pb"
+			model_metadata:  "./path/to/mood_model_metadata.json"
+			embedding_model:  "./path/to/embedding_model.pb"
 	# Add configurations for other extractors (genre, instrument, voice, gender, auto)...
 
 
@@ -169,7 +170,7 @@ The configuration file includes settings for input/output paths, feature extract
 The generated captions can be easily visualised using the following command
 
 ```
-python display_tags.py files/features.json (directory_with_mirflex_repo)/mirflex/
+python display_tags.py files/features.json ./
 ```
 
 the requirements to run this are the following packages
